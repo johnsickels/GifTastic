@@ -1,12 +1,22 @@
 var topics = ["dog", "cat", "mouse"];
 
-for (i = 0; i < topics.length; i++) {
-    var a = $("<button>");
-    a.addClass("gif-btn");
-    a.attr("data-name", topics[i]);
-    a.text(topics[i]);
-    $("#buttons").append(a);
-}
+function renderButtons () {
+    $("#buttons").empty();
+    for (i = 0; i < topics.length; i++) {
+        var a = $("<button>");
+        a.addClass("gif-btn");
+        a.attr("data-name", topics[i]);
+        a.text(topics[i]);
+        $("#buttons").append(a);
+    }
+};
+
+$("#add-gif").on("click", function(event) {
+    event.preventDefault();
+    var newGif = $("#gif-input").val().trim();
+    topics.push(newGif);
+    renderButtons();
+  });
 
 $(document).on("click", ".gif-btn", function () {
     var animal = $(this).attr("data-name");
@@ -35,23 +45,18 @@ $(document).on("click", ".gif-btn", function () {
             }
         });
 });
-$(".gif").on("click", function () {
-    console.log(this);
+
+$(document).on("click", ".gif", function () {
     var state = $(this).attr("data-state");
-      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      // Then, set the image's data-state to animate
-      // Else set src to the data-still value
-      if (state === "still") {
+    if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-      } else {
+    } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-      }
-})
+    }
+});
 
-// 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
-
-// 6. Add a form to your page takes the value from a user input box and adds it into your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
+renderButtons();
 
 // 7. Deploy your assignment to Github Pages.
