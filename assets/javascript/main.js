@@ -1,6 +1,6 @@
 var topics = ["dog", "cat", "mouse"];
 
-function renderButtons () {
+function renderButtons() {
     $("#buttons").empty();
     for (i = 0; i < topics.length; i++) {
         var a = $("<button>");
@@ -11,12 +11,12 @@ function renderButtons () {
     }
 };
 
-$("#add-gif").on("click", function(event) {
+$("#add-gif").on("click", function (event) {
     event.preventDefault();
     var newGif = $("#gif-input").val().trim();
     topics.push(newGif);
     renderButtons();
-  });
+});
 
 $(document).on("click", ".gif-btn", function () {
     var animal = $(this).attr("data-name");

@@ -1,6 +1,10 @@
 body {
     background-color: aqua;
+    padding: 10px;
 }
-.gifsInline {
+#gifs, .gif, .gifsInline {
     display: inline;
+}
+p {
+    width: 100px;
 }
