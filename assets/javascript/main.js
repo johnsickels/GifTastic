@@ -1,10 +1,10 @@
-var topics = ["dog", "cat", "mouse"];
+var topics = ["here", "there", "anywhere", "moscow", "bahamas", "barcelona"];
 
 function renderButtons() {
     $("#buttons").empty();
     for (i = 0; i < topics.length; i++) {
         var a = $("<button>");
-        a.addClass("gif-btn");
+        a.addClass("btn btn-primary gif-btn");
         a.attr("data-name", topics[i]);
         a.text(topics[i]);
         $("#buttons").append(a);
@@ -14,13 +14,19 @@ function renderButtons() {
 $("#add-gif").on("click", function (event) {
     event.preventDefault();
     var newGif = $("#gif-input").val().trim();
-    topics.push(newGif);
-    renderButtons();
+    if ($("#gif-input").val() === "") {
+        return false;
+    }
+    else {
+        topics.push(newGif);
+        renderButtons();
+        $("#gif-input").val("");
+    }
 });
 
 $(document).on("click", ".gif-btn", function () {
-    var animal = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=AGGaD69hOSoDdJN1x8FrkFNgxysdJyJz&limit=10&q=" + animal;
+    var topic = $(this).attr("data-name");
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=AGGaD69hOSoDdJN1x8FrkFNgxysdJyJz&limit=10&q=" + topic;
 
     $.ajax({
         url: queryURL,
@@ -32,15 +38,15 @@ $(document).on("click", ".gif-btn", function () {
                 var gifDiv = $("<div>");
                 gifDiv.addClass("gifsInline");
                 var p = $("<p>").text("Rating: " + results[i].rating);
-                var animalImage = $("<img>");
-                animalImage.addClass("gif");
-                animalImage.attr("alt", "animal image");
-                animalImage.attr("src", results[i].images.fixed_height_still.url);
-                animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-                animalImage.attr("data-animate", results[i].images.fixed_height.url);
-                animalImage.attr("data-state", "still");
+                var topicImage = $("<img>");
+                topicImage.addClass("gif");
+                topicImage.attr("alt", "topic image");
+                topicImage.attr("src", results[i].images.fixed_height_still.url);
+                topicImage.attr("data-still", results[i].images.fixed_height_still.url);
+                topicImage.attr("data-animate", results[i].images.fixed_height.url);
+                topicImage.attr("data-state", "still");
                 gifDiv.append(p);
-                gifDiv.append(animalImage);
+                gifDiv.append(topicImage);
                 $("#gifs").prepend(gifDiv);
             }
         });

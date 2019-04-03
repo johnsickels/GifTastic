@@ -1,10 +1,36 @@
 body {
-    background-color: aqua;
+    background-color:black;
     padding: 10px;
 }
-#gifs, .gif, .gifsInline {
-    display: inline;
+#myVideo {
+    position: fixed;
+    right: 0;
+    top: 0;
+    max-width: 100%; 
+    max-height: 100%;
+    align-content: center;
+    background-repeat: repeat;
+}
+.container {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+.btn {
+    margin: 0 5px 5px 0;
+}
+#gif-form {
+    margin: 10px;
+}
+.gifsInline {
+    float: left;
+    margin: 10px 10px 0 0;
 }
 p {
-    width: 100px;
+    margin: 2px;
+}
+.col, .col-9 {
+    padding: 0px;
 }
