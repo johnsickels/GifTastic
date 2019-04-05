@@ -33,6 +33,6 @@ In this assignment, I will use the GIPHY API to make a dynamic web page that pop
 - Giphy API
 - AJAX
 
-### Trivia Game Links:
+### GifTastic Links:
 [GifTastic](https://johnsickels.github.io/GifTastic/)
 ![Trivia Game](https://raw.githubusercontent.com/johnsickels/GifTastic/master/assets/videos/userinterface.png)
