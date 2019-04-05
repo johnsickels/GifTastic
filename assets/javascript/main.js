@@ -64,5 +64,3 @@ $(document).on("click", ".gif", function () {
 });
 
 renderButtons();
-
-// 7. Deploy your assignment to Github Pages.

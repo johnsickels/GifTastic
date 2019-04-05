@@ -12,7 +12,7 @@ body {
     background-repeat: repeat;
 }
 .container {
-    position: fixed;
+    position: relative;
     background: rgba(0, 0, 0, 0.5);
     color: #f1f1f1;
     width: 100%;
@@ -27,6 +27,13 @@ body {
 .gifsInline {
     float: left;
     margin: 10px 10px 0 0;
+}
+#gif-input {
+    margin: 0 5px 0 0;
+}
+.gif {
+    max-height: 100%;
+    max-width: 100%;
 }
 p {
     margin: 2px;
